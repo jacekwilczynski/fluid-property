@@ -1,0 +1,27 @@
+@import '../functions/em', '../functions/getFluidSize';
+
+@mixin fluidProperty(
+  $propertyName,
+  $fluidRange,
+  $valueBelowFluidRange,
+  $valueAboveFluidRange,
+  $mediaQueryPropertyName: $propertyName
+) {
+  // Get the calc(...) value to apply within the fluid range
+  #{$propertyName}: getFluidSize(
+    $x1: nth($fluidRange, 1),
+    $y1: $valueBelowFluidRange,
+    $x2: nth($fluidRange, 2),
+    $y2: $valueAboveFluidRange
+  );
+
+  // Fixed value below the fluid range
+  @media (max-#{$mediaQueryPropertyName}: em(nth($fluidRange, 1))) {
+    #{$propertyName}: $valueBelowFluidRange;
+  }
+
+  // Fixed value above the fluid range
+  @media (min-#{$mediaQueryPropertyName}: em(nth($fluidRange, 2))) {
+    #{$propertyName}: $valueAboveFluidRange;
+  }
+}

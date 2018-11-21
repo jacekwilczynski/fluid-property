@@ -1,0 +1,10 @@
+@import 'rem', 'getRatioMixedUnits';
+
+@function getFluidSize($x1, $y1, $x2, $y2) {
+  $ratio: getRatioMixedUnits($x1, $y1, $x2, $y2);
+
+  $changeRatio: map_get($ratio, changeRatio);
+  $ratioOffset: map_get($ratio, offset);
+
+  @return calc(#{$changeRatio * 100vw} + #{rem($ratioOffset)});
+}

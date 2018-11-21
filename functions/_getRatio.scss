@@ -1,0 +1,4 @@
+@function getRatio($x1, $y1, $x2, $y2) {
+  $changeRatio: ($y2 - $y1) / ($x2 - $x1);
+  @return (changeRatio: $changeRatio, offset: $y1 - $changeRatio * $x1);
+}

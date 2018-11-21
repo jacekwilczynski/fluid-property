@@ -1,0 +1,15 @@
+@function makeRelative($value, $ratioToPx: 16, $round: false) {
+  $output: null;
+  @if unitless($value) {
+    $output: $value;
+  } @else if unit($value) == 'px' {
+    $output: $value / 1px;
+  } @else {
+    @error "Value must be either px or unitless (assumed to mean px). Instead got #{$value}";
+  }
+  $output: $output / $ratioToPx;
+  @if ($round) {
+    $output: round($output);
+  }
+  @return #{$output};
+}

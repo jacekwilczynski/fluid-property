@@ -1,0 +1,5 @@
+@import 'makeRelative';
+
+@function rem($value, $options...) {
+  @return #{makeRelative($value, $options...)}rem;
+}

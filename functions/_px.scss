@@ -1,0 +1,34 @@
+@import 'stripUnit';
+
+@function px($value, $relativeSizes: ()) {
+  // Case: unitless -> append px
+  @if unitless($value) {
+    @return #{$value}px;
+  }
+
+  // Grab the unit
+  $unit: unit($value);
+
+  // Case: already px -> just return
+  @if $unit == 'px' {
+    @return $value;
+  }
+
+  // Case: other -> try to establish the absolute equivalent of the relative unit
+  $defaultRelativeSizes: (
+    em: 16px,
+    rem: 16px
+  );
+  $relativeSizes: map_merge($defaultRelativeSizes, $relativeSizes);
+
+  // If the absolute size for the specific unit used is not known, try % as a general fallback
+  $unitToUse: if(map_has_key($relativeSizes, $unit), $unit, '%');
+
+  // If you know how many px the unit corresponds to, do the calculation
+  @if map_has_key($relativeSizes, $unitToUse) {
+    @return stripUnit($value) * map_get($relativeSizes, $unitToUse);
+  }
+
+  // If not, throw an error
+  @error "Unit '#{$unit}' has no defined absolute equivalent either directly or as a % fallback.";
+}

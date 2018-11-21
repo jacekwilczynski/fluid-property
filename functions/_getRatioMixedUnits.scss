@@ -1,0 +1,7 @@
+@import 'px', 'getRatio';
+
+@function getRatioMixedUnits($x1, $y1, $x2, $y2, $relativeSizes: ()) {
+  $y1: px($y1, map_merge(('%': $x1), $relativeSizes));
+  $y2: px($y2, map_merge(('%': $x2), $relativeSizes));
+  @return getRatio($x1, $y1, $x2, $y2);
+}
