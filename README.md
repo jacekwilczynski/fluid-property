@@ -7,7 +7,7 @@ A set of Sass functions and a mixin for calculating sizes based on ratios using 
 A container for the page content that takes the full screen width on small screens (<500px), then grows slower and slower to reach a fixed value of 1200px on large screens (>1500). Uses rem for sizes and em in media queries for best responsiveness.
 
 #### SCSS
-```
+```sass
 .container {
   @include fluidProperty(
     $propertyName: width,
@@ -24,7 +24,7 @@ A container for the page content that takes the full screen width on small scree
 ```
 
 #### CSS
-```
+```css
 .container {
   width: calc(70vw + 9.375rem);
   box-sizing: border-box;
