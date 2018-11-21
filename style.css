@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.bg-colored {
+  background-color: #4dff5e;
+}
+
+.container {
+  width: calc(70vw + 9.375rem);
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+@media (max-width: 31.25em) {
+  .container {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 93.75em) {
+  .container {
+    width: 1200px;
+  }
+}

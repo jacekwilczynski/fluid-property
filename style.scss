@@ -1,0 +1,23 @@
+@import 'mixins/fluidProperty';
+
+body {
+  margin: 0;
+}
+
+.bg-colored {
+  background-color: #4dff5e;
+}
+
+.container {
+  @include fluidProperty(
+    $propertyName: width,
+    $fluidRange: (500px, 1500px),
+    $valueBelowFluidRange: 100vw,
+    $valueAboveFluidRange: 1200px
+  );
+
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
