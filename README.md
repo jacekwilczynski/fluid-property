@@ -4,7 +4,7 @@ A set of Sass functions and a mixin for calculating sizes based on ratios using 
 ## Usage
 
 ### fluidProperty
-A container for the page content that takes the full screen width on small screens (<500px), then grows slower and slower to reach a fixed value of 1200px on large screens (>1500). Uses rem for sizes and em in media queries for best responsiveness.
+The code below creates a container for the page content that takes the full screen width on small screens (<500px), then grows slower and slower to reach a fixed value of 1200px on large screens (>1500). Uses rem for sizes and em in media queries for best responsiveness.
 
 #### SCSS
 ```sass
@@ -46,7 +46,7 @@ A container for the page content that takes the full screen width on small scree
 }
 ```
 
-#### Example
+#### Demo
 https://jacekwilczynski.github.io/fluid-property
 
 Change the screen width to observe the fluid transition.
