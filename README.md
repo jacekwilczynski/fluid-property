@@ -45,3 +45,8 @@ A container for the page content that takes the full screen width on small scree
   }
 }
 ```
+
+#### Example
+https://jacekwilczynski.github.io/fluid-property
+
+Change the screen width to observe the fluid transition.
